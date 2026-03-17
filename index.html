@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>첫번째 아이디어</title>
     <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body, html {
+        body,
+        html {
             margin: 0;
             padding: 0;
             width: 100%;
@@ -14,61 +16,164 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            /* Pretendard 폰트 사용 (한글에 적합) */
             font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-            background: linear-gradient(135deg, #141026, #2d204d, #120e1a);
-            color: #ffffff;
+            /* 밝은 회색 계열의 세련된 그라데이션 */
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ed 100%);
+            color: #2d3436;
             overflow: hidden;
         }
 
         .container {
             text-align: center;
             padding: 4rem 6rem;
-            background: rgba(255, 223, 0, 0.03);
-            border-radius: 32px;
-            box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 223, 0, 0.1);
+            /* 화이트 글래스모피즘 효과 */
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 40px;
+            box-shadow:
+                0 15px 35px rgba(0, 0, 0, 0.05),
+                0 5px 15px rgba(0, 0, 0, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
             transform: translateY(0);
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border 0.4s ease;
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
             cursor: pointer;
         }
 
         .container:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px 0 rgba(255, 215, 0, 0.15);
-            background: rgba(255, 223, 0, 0.06);
-            border: 1px solid rgba(255, 223, 0, 0.3);
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid rgba(255, 255, 255, 1);
         }
 
         h1 {
             margin: 0;
-            font-size: 6.5rem;
+            font-size: 42px;
             font-weight: 800;
-            letter-spacing: -0.04em;
-            background: linear-gradient(120deg, #FFF066 0%, #FFB800 100%);
+            letter-spacing: -0.03em;
+            /* 깊이감 있는 프리미엄 차콜 컬러 */
+            background: linear-gradient(180deg, #2d3436 0%, #636e72 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0px 8px 16px rgba(255, 184, 0, 0.3));
-            animation: fadeIn 1.5s ease-out;
+            margin-bottom: 12px;
+            animation: fadeIn 1.2s ease-out forwards;
+        }
+
+        .subtext {
+            font-size: 16px;
+            font-weight: 500;
+            color: #b2bec3;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            opacity: 0;
+            margin-bottom: 8px;
+            animation: fadeIn 1.2s ease-out 0.4s forwards;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 32px;
+            padding: 16px 36px;
+            font-size: 16px;
+            font-weight: 700;
+            color: #ffffff;
+            background: linear-gradient(135deg, #0984e3, #74b9ff);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(9, 132, 227, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            opacity: 0;
+            animation: fadeIn 1.2s ease-out 0.8s forwards;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            filter: brightness(1.05);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* 버튼 컬러 상태 클래스 */
+        .btn-blue {
+            background: linear-gradient(135deg, #0984e3, #74b9ff);
+            box-shadow: 0 10px 20px rgba(9, 132, 227, 0.2);
+        }
+
+        .btn-yellow {
+            background: linear-gradient(135deg, #f1c40f, #f39c12);
+            box-shadow: 0 10px 20px rgba(241, 196, 15, 0.2);
+        }
+
+        .btn-orange {
+            background: linear-gradient(135deg, #e67e22, #d35400);
+            box-shadow: 0 10px 20px rgba(230, 126, 34, 0.2);
+        }
+
+        .btn-green {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            box-shadow: 0 10px 20px rgba(39, 174, 96, 0.2);
         }
 
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(10px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
+
+        /* 텍스트 변경 시 애니메이션 클래스 */
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <h1>내 첫 번째 아이디어</h1>
+        <div class="subtext">Daily Cheer-up</div>
+        <h1 id="message">오늘도 힘내세요!</h1>
+        <button class="btn" id="nextBtn">다음 문장 보기</button>
     </div>
+
+    <script>
+        const messages = [
+            '오늘도 힘내세요!',
+            '오늘도 해냈어요!',
+            '조금씩 나아지고 있어요!',
+            '이대로 계속 가봅시다.'
+        ];
+
+        let currentIndex = 0;
+        const messageEl = document.getElementById('message');
+        const nextBtn = document.getElementById('nextBtn');
+
+        nextBtn.addEventListener('click', () => {
+            // 인덱스 순환
+            currentIndex = (currentIndex + 1) % messages.length;
+
+            // 애니메이션 초기화를 위해 클래스 제거 후 재삽입
+            messageEl.classList.remove('fade-in');
+            void messageEl.offsetWidth; // 리플로우 강제 발생
+
+            // 텍스트 변경 및 애니메이션 적용
+            messageEl.textContent = messages[currentIndex];
+            messageEl.classList.add('fade-in');
+
+            // 버튼 색상 변경
+            const btnClasses = ['btn-blue', 'btn-yellow', 'btn-orange', 'btn-green'];
+            nextBtn.className = 'btn ' + btnClasses[currentIndex];
+        });
+    </script>
 </body>
+
 </html>
